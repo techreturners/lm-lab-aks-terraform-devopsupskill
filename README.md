@@ -287,32 +287,27 @@ Firstly create the service
 kubectl apply -f kubernetes/nginx-service.yaml
 ```
 
-And then create the ingress
-
-```
-kubectl apply -f kubernetes/nginx-ingress.yaml
-```
-
-Kubernetes will now create the required load balancer and create an external IP address for your ingress point.
+Kubernetes will now create the required load balancer and create an external IP address.
 
 Keep running the command below until you see an external IP address
 
 ```
- kubectl get ing
+ kubectl get services
 ```
 
 It should output something like this:
 
 ```
-NAME                      CLASS    HOSTS   ADDRESS         PORTS   AGE
-nginx-webserver-ingress   <none>   *       34.117.49.187   80      95s
+NAME               TYPE           CLUSTER-IP   EXTERNAL-IP      PORT(S)        AGE
+kubernetes         ClusterIP      10.0.0.1     <none>           443/TCP        4m54s
+nginx-web-server   LoadBalancer   10.0.94.47   51.143.235.215   80:32580/TCP   7s
 ```
 
 ### Step 13 - Marvel at your creation
 
-After around 5 to 10 mins you should be able to hit the endpoint with your browser. Using the example above I would go to: http://34.117.49.187
+After around 5 to 10 mins you should be able to hit the endpoint with your browser. Using the example above I would go to: http://51.143.235.215
 
-**NOTE** It does take around 5 to 10 mins, for some time you might see a Google 404 page.
+**NOTE** It does take a few mins, for some time you might see a 404 page.
 
 ### Step 14 - Tearing down your cluster
 
@@ -321,7 +316,6 @@ Finally we want to destroy our cluster.
 Firstly lets remove the service and ingress
 
 ```
-kubectl delete -f kubernetes/nginx-ingress.yaml
 kubectl delete -f kubernetes/nginx-service.yaml
 ```
 
