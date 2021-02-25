@@ -90,7 +90,7 @@ This file defines the outputs that will be produced by terraform when things hav
 
 **versions.tf** 
 
-Configures the terraform providers (in our case the GCP provider) and sets the Terraform version to at least 0.14.
+Configures the terraform providers (in our case the Azure provider) and sets the Terraform version to at least 0.14.
 
 ### Step 4 - Create an Azure Service Principle
 
@@ -124,7 +124,7 @@ Update the appId and password as per your service principal account.
 
 ### Step 6 - Initialise terraform
 
-We need to get terraform to pull down the google provider.
+We need to get terraform to pull down the Azure provider.
 
 In order to do this run:
 
