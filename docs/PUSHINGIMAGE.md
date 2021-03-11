@@ -39,7 +39,6 @@ az acr login --name REGISTRY_NAME
 It should so something similar to:
 
 ```
-Uppercase characters are detected in the registry name. When using its server url in docker commands, to avoid authentication errors, use all lowercase.
 Login Succeeded
 ```
 

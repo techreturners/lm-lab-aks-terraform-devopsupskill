@@ -1,6 +1,9 @@
 resource "random_string" "acr-random-name" {
-  length           = 5
-  special          = false
+  length        = 5
+  special       = false
+  upper         = false
+  number        = false
+  lower         = true
 }
 
 resource "azurerm_container_registry" "devops-upskill-registry" {
