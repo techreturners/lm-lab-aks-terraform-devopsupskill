@@ -166,11 +166,14 @@ Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 
 Outputs:
 
+acr_registry_name = "devopsupskillregistryqK4Wj"
 kubernetes_cluster_name = "devops-upskill-aks"
 resource_group_name = "devops-upskill-rg"
 ```
 
 Once its done you'll have a your Kubernetes cluster all ready to go!!!
+
+**NOTE:** Make a note of the value for your **acr_registry_name** because you'll need that in a moment.
 
 ### Step 9 - Configure your **kube control** 
 
