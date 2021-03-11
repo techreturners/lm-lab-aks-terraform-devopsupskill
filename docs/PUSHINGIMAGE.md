@@ -30,10 +30,10 @@ That will produce a local docker image. One that we can PUSH up to your containe
 
 Next we need to make sure your local docker instance has the right credentials to push up to your container registry. 
 
-To authenticate with the container registry run:
+To authenticate with the container registry, replace the REGISTRY_NAME in the following command with your registry name and then run:
 
 ```
-az acr login --name DevopsUpskillRegistry
+az acr login --name REGISTRY_NAME
 ```
 
 It should so something similar to:
@@ -47,20 +47,22 @@ Login Succeeded
 
 The way you tell Docker about your container registries is through the tagging system.
 
-You can tag the image you built in step 2 with a new tag for your container registry. To do this (replace the PROJECT-ID with your GCP project ID):
+You can tag the image you built in step 2 with a new tag for your container registry. To do this (replace the REGISTRY_NAME with your Azure registry name):
 
 ```
-docker tag devops-bookstore-api:1.0 devopsupskillregistry.azurecr.io/devopsupskill/devops-bookstore-api:1.0
+docker tag devops-bookstore-api:1.0 REGISTRY_NAME.azurecr.io/devopsupskill/devops-bookstore-api:1.0
 ```
 
 You can see your Docker images by running `docker images` and you should see your tagged version.
 
 ### Step 5 - Push your image
 
-Once the image has been tagged and you have configured docker to be authenticated with your account you should be able to push your image.
+Once the image has been tagged and you have configured docker to be authenticated with your account you should be able to push your image. 
+
+Remember the registry name will be slightly different to the example shown below.
 
 ```
-docker push devopsupskillregistry.azurecr.io/devopsupskill/devops-bookstore-api:1.0
+docker push REGISTRY_NAME.azurecr.io/devopsupskill/devops-bookstore-api:1.0
 ```
 
 If all works you should see it show progress of your "push"

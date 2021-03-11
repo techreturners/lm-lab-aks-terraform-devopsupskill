@@ -1,5 +1,10 @@
+resource "random_string" "acr-random-name" {
+  length           = 5
+  special          = false
+}
+
 resource "azurerm_container_registry" "devops-upskill-registry" {
-  name                = "DevopsUpskillRegistry"
+  name                = "devopsupskillregistry${random_string.acr-random-name.result}"
   resource_group_name = azurerm_resource_group.default.name
   location            = azurerm_resource_group.default.location
   sku                 = "Standard"
