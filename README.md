@@ -8,7 +8,11 @@ This repository shows examples and guides for using [Terraform](https://terrafor
 
 You will need to ensure that you have installed Azure command line interface (Azure CLI) - as mentioned in the pre-session assignments for DevOps up-skill session three.
 
-### Step 1 - Install and configure the Azure CLI
+### Step 1 - Fork and clone
+
+Fork this repository into your own GitHub account and then clone (your forked version) down to your local machine.
+
+### Step 2 - Install and configure the Azure CLI
 
 We'll use the Azure CLI to get information from the cluster.
 
@@ -32,7 +36,7 @@ Once it is installed we need to ensure that the CLI is logged in - to do this ru
 az login
 ```
 
-### Step 2 - Install kubectl tool
+### Step 3 - Install kubectl tool
 
 The `kubectl` tool will be utilised to interact with your Kubernetes (K8S) cluster.
 
@@ -68,7 +72,7 @@ Client Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.4", GitCom
 
 Dont worry if it says "Unable to connect to server" at this stage. We'll be sorting that later.
 
-### Step 3 - Explore the files
+### Step 4 - Explore the files
 
 Before we go ahead and create your cluster its worth exploring the files.
 
@@ -92,7 +96,7 @@ This file defines the outputs that will be produced by terraform when things hav
 
 Configures the terraform providers (in our case the Azure provider) and sets the Terraform version to at least 0.14.
 
-### Step 4 - Create an Azure Service Principle
+### Step 5 - Create an Azure Service Principle
 
 You'll need to authenticate with Azure.
 
@@ -116,13 +120,13 @@ It should produce something similar to the following:
 }
 ```
 
-### Step 5 - Update the tfvars file
+### Step 6 - Update the tfvars file
 
 Now you know the files and have your service principal details, the next step is to update the tfvars file according to your project.
 
 Update the appId and password as per your service principal account.
 
-### Step 6 - Initialise terraform
+### Step 7 - Initialise terraform
 
 We need to get terraform to pull down the Azure provider.
 
@@ -143,7 +147,7 @@ Initializing provider plugins...
 - Installed hashicorp/azurerm v2.48.0 (signed by HashiCorp)
 ```
 
-### Step 7 - Review changes with a plan
+### Step 8 - Review changes with a plan
 
 Firstly run a **plan** to see if what Terraform decides will happen.
 
@@ -151,7 +155,7 @@ Firstly run a **plan** to see if what Terraform decides will happen.
 terraform plan
 ```
 
-### Step 8 - Create your cluster with apply
+### Step 9 - Create your cluster with apply
 
 We can then create your cluster by applying the configuration.
 
@@ -174,7 +178,7 @@ resource_group_name = "devops-upskill-rg"
 
 Once its done you'll have a your Kubernetes cluster all ready to go!!!
 
-### Step 9 - Configure your **kube control** 
+### Step 10 - Configure your **kube control** 
 
 **kubectl** is used to issue actions on our cluster.
 
@@ -193,7 +197,7 @@ It should say something like:
 Merged "devops-upskill-aks" as current context in /Users/jamesheggs/.kube/config
 ```
 
-### Step 10 - Check if kubectl can access cluster
+### Step 11 - Check if kubectl can access cluster
 
 You can now verify if `kubectl` can access your cluster.
 
@@ -213,7 +217,7 @@ aks-default-51320324-vmss000001   Ready    agent   3m57s   v1.18.14
 
 Exciting eh!!!
 
-### Step 11 - Deploying your first app in a pod!!
+### Step 12 - Deploying your first app in a pod!!
 
 Finally lets get a container running on your cluster.
 
@@ -275,7 +279,7 @@ nginx-deployment-5cd5cdbcc4-knxss   1/1     Running       0          3m47s
 nginx-deployment-5cd5cdbcc4-sqm2p   0/1     Terminating   0          3m47s
 ```
 
-### Step 12 - Exposing your webserver
+### Step 13 - Exposing your webserver
 
 Finally lets get that web server exposed to the internet with a **service**
 
@@ -303,13 +307,13 @@ kubernetes         ClusterIP      10.0.0.1     <none>           443/TCP        4
 nginx-web-server   LoadBalancer   10.0.94.47   51.143.235.215   80:32580/TCP   7s
 ```
 
-### Step 13 - Marvel at your creation
+### Step 14 - Marvel at your creation
 
 After around 5 to 10 mins you should be able to hit the endpoint with your browser. Using the example above I would go to: http://51.143.235.215
 
 **NOTE** It does take a few mins, for some time you might see a 404 page.
 
-### Step 14 - Tearing down your cluster
+### Step 15 - Tearing down your cluster
 
 Finally we want to destroy our cluster.
 
