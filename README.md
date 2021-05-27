@@ -124,7 +124,9 @@ It should produce something similar to the following:
 
 Now you know the files and have your service principal details, the next step is to update the tfvars file according to your project.
 
-Update the appId and password as per your service principal account.
+Update the **appId** and **password** as per your service principal account.
+
+**NOTE:** Make sure you do NOT commit/push the files with your service principal details.
 
 ### Step 7 - Initialise terraform
 
