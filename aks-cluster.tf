@@ -33,12 +33,6 @@ resource "azurerm_kubernetes_cluster" "default" {
     enabled = true
   }
 
-  addon_profile {
-    kube_dashboard {
-      enabled = true
-    }
-  }
-
   tags = {
     environment = "Demo"
   }
