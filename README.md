@@ -50,4 +50,6 @@ All your infrastructure is setup ready to go! Now you can head over to the GitOp
 
 [https://github.com/techreturners/devops-upskill-gitops](https://github.com/techreturners/devops-upskill-gitops)
 
+### FAQs
 
+You can find the FAQs [here](./docs/FAQS.md).
