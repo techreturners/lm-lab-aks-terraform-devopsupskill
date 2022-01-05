@@ -315,6 +315,8 @@ After around 5 to 10 mins you should be able to hit the endpoint with your brows
 
 **NOTE** It does take a few mins, for some time you might see a 404 page.
 
+**NOTE** Remember to check Google classroom before tearing things down. There are a couple of screenshots you should submit as evidence of your success 🙌
+
 ### Step 15 - Tearing down your cluster
 
 Finally we want to destroy our cluster.
