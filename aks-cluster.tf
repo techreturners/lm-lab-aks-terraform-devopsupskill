@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "default" {
   location = var.region
 
   tags = {
-    environment = "Demo"
+    name = "DevOps Up-skill"
   }
 }
 
@@ -34,6 +34,6 @@ resource "azurerm_kubernetes_cluster" "default" {
   }
 
   tags = {
-    environment = "Demo"
+    name = "DevOps Up-skill"
   }
 }

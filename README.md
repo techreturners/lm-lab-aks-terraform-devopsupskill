@@ -126,7 +126,7 @@ Now you know the files and have your service principal details, the next step is
 
 Update the **appId** and **password** as per your service principal account.
 
-**NOTE:** Make sure you do NOT commit/push the files with your service principal details.
+**IMPORTANT NOTE:** Make sure you do NOT commit/push the files with your service principal details.
 
 ### Step 7 - Initialise terraform
 
@@ -165,9 +165,11 @@ We can then create your cluster by applying the configuration.
 terraform apply
 ```
 
-Sit back and relax - it might take 10 mins or so to create your cluster.
+Sit back and relax - it might take 10 mins or so to create your cluster. Grab yourself a drink ☕️
 
-Once its finished it'll output something like the info below. Those **outputs** are defined in the **outputs.tf** file.
+Once its finished it'll output something like the info below. 
+
+Those **outputs** are defined in the **outputs.tf** file.
 
 ```
 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
@@ -196,7 +198,7 @@ az aks get-credentials --resource-group $(terraform output -raw resource_group_n
 It should say something like:
 
 ```
-Merged "devops-upskill-aks" as current context in /Users/jamesheggs/.kube/config
+Merged "devops-upskill-aks" as current context in /Users/someuser/.kube/config
 ```
 
 ### Step 11 - Check if kubectl can access cluster
@@ -213,11 +215,11 @@ It should show something like:
 
 ```
 NAME                              STATUS   ROLES   AGE     VERSION
-aks-default-51320324-vmss000000   Ready    agent   4m41s   v1.18.14
-aks-default-51320324-vmss000001   Ready    agent   3m57s   v1.18.14
+aks-default-51320324-vmss000000   Ready    agent   4m41s   v1.21.9
+aks-default-51320324-vmss000001   Ready    agent   3m57s   v1.21.9
 ```
 
-Exciting eh!!!
+Exciting eh!!! 🚀
 
 ### Step 12 - Deploying your first app in a pod!!
 
@@ -298,7 +300,7 @@ Kubernetes will now create the required load balancer and create an external IP 
 Keep running the command below until you see an external IP address
 
 ```
- kubectl get services
+kubectl get services
 ```
 
 It should output something like this:
@@ -321,7 +323,7 @@ After around 5 to 10 mins you should be able to hit the endpoint with your brows
 
 Finally we want to destroy our cluster.
 
-Firstly lets remove the service and ingress
+Firstly let's remove the service and ingress
 
 ```
 kubectl delete -f kubernetes/nginx-service.yaml
