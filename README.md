@@ -102,13 +102,15 @@ You'll need to authenticate with Azure.
 
 We'll use the Active Directory service principal account.
 
-Run the following command:
+Run the following command to create the service principal.
 
 ```
 az ad sp create-for-rbac --skip-assignment
 ```
 
 It should produce something similar to the following:
+
+(Also, it's worth saving these details somewhere securely, we'll make use of them later in these instructions and further on in the programme)
 
 ```
 {
